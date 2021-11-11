@@ -1,0 +1,29 @@
+.index {
+    overflow: hidden;
+}
+
+
+
+.banner{
+    background: url("noom-peerapong-2uwFEAGUm6E-unsplash.jpg")
+    no-repeat center center;
+    background-size: cover;
+    padding-top: 20%;
+    padding-bottom: 14%;
+    color: rgb(255, 255, 255);
+    height: 721px;
+}
+
+/* CSS BAGIAN HOME */
+.header-content {
+    margin-top: 75px;
+    color: black;
+    height: 646px;
+} 
+
+section{
+    background-color: #888888;
+    min-height: 1120px;
+}
+
+
