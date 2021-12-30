@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 	
 	<!-- SFX Audio Tap Event -->
-	<audio id="bunyi" src="jeng.mp3"></audio>
+	<audio id="bunyi" src="nani.mp3"></audio>
 	
 	<!-- SFX Audio Record Tap Event -->
 	<audio id="yeay" src="yeay.mp3"></audio>
@@ -42,23 +42,43 @@
 		  color: #00CC66;
 		  text-align: center;
 		}
-	</style>
-	
-	<!-- Disable Right Click -->
-	
+		
+		.getar {
+		  /* Start the shake animation and make the animation last for 0.5 seconds */
+		  animation: shake 0.5s;
+		
+		  /* When the animation is finished, start again */
+		  animation-iteration-count: infinite;
+		}
+		
+		@keyframes shake {
+		  0% { transform: translate(1px, 1px) rotate(0deg); }
+		  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+		  20% { transform: translate(-3px, 0px) rotate(1deg); }
+		  30% { transform: translate(3px, 2px) rotate(0deg); }
+		  40% { transform: translate(1px, -1px) rotate(1deg); }
+		  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+		  60% { transform: translate(-3px, 1px) rotate(0deg); }
+		  70% { transform: translate(3px, 1px) rotate(-1deg); }
+		  80% { transform: translate(-1px, -1px) rotate(1deg); }
+		  90% { transform: translate(1px, 2px) rotate(0deg); }
+		  100% { transform: translate(1px, -2px) rotate(-1deg); }
+		}
 
+	</style>
     </head>
-<body oncontextmenu="return false">
+	
+	<body oncontextmenu="return false">
   
 		<!-- BAGIAN KONTEN : -->
 		
 			<h1 class="text-center slmt">TapOpung</h1>
-			<h4 class="text-center mt-4">Tap Opung sebanyak mungkin untuk menamatkan game !!</h4>
+			<h4 class="text-center mt-4">Tap Opung sampe 100x untuk menamatkan game !!</h4>
 			
 			<div class="text-center mt-5">
-				<h4>Kamu menyentuh Opung sebanyak :</h4>
+				<h4 id="info">Kamu tap Opung sebanyak :</h4>
 				<h1 class="text-center d-inline" id="out">0</h1>
-				<h1 class="d-inline">x</h1>
+				<h1 class="d-inline" id="jum">x</h1>
 			</div>
 			
 			<img width="700" src="img/luhut.jpg" alt="" class="aaaa" id="touch">
@@ -66,7 +86,7 @@
 			<br>
 			
 			<address class="footer">
-				&copy; Copyright 2021, All Rights Reserved. Development by <b><i>MaverickLab.</i></b>
+				&copy; Copyright 2021, All Rights Reserved. <br> Powered by <b>brianmarx09.github.io</b>
 			</address>
 		
 		<!-- END -->
@@ -96,14 +116,21 @@
 	
 	touch["addEventListener"]("click",()=>{
 	count++;
-	bunyi.play();
+	$("img").on('click', function(){
+		bunyi.play();
+	});
+	
 	out["innerHTML"]= count;
 		if(count== 100){
 		yeay.play();
-		Command:toastr["success"]("Opung bangga sama kamu, nak !!");
+		$("img").replaceWith("<a href=''><img src='img/luhut2.jpg' style='cursor: default' class='aaaa'></a>");
+		Command:toastr["success"]("HORE!!! KAMU BERHASIL MENAMATKAN GAME INI!!!");
 			toastr["options"]= {
 			"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
 		}
+		$("#info").replaceWith("");
+		$("#out").replaceWith("<h1 class='text-center d-inline'>TAMAT !!</h1> <br> <h2 class='text-center d-inline'>KAMU BERHAK MENDAPATKAN SEPEDA DARI PAKDE OWI</h2> <br> <h6>TAPI BOHONG :D</h6>");
+		$("#jum").replaceWith("");
 	};
 		if(count== 500){
 		wow.play();
@@ -138,7 +165,7 @@
 </script>
 
 <script>
-    Command:toastr["info"]("SENTUH FOTO OPUNG LUHUT SEBANYAK2-NYA !! :D");
+    Command:toastr["info"]("TAP FOTO OPUNG LUHUT SEBANYAK2-NYA !! :D");
 	toastr["options"]= {
 	"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
 	}
@@ -151,6 +178,22 @@
 
 <script type="text/javascript">
 	document.onkeydown=function(e){e=e||window.event;if(e.keyCode==123||e.keyCode==18){return false}}
+</script>
+
+<script>
+	$(document).ready(function(){
+		$("img").on('mouseout', function(){
+			$("img").removeClass("getar");
+		});
+		
+		$("img").on('mouseover', function(){
+			$("img").removeClass("getar");
+		});
+	
+		$("img").on('click', function(){
+			$("img").addClass("getar");
+		});
+	});
 </script>
 
 </body>
