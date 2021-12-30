@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+	
+	<!-- SFX Audio Tap Event -->
+	<audio id="bunyi" src="jeng.mp3"></audio>
+	
+	<!-- SFX Audio Record Tap Event -->
+	<audio id="yeay" src="yeay.mp3"></audio>
+	<audio id="wow" src="wow.mp3"></audio>
+	<audio id="nani" src="nani.mp3"></audio>
+	<audio id="joko" src="joko.mp3"></audio>
+
+	<!-- Icon Web -->
+    <link rel="shortcut icon" href="img/luhut.jpg" type="image/x-icon" style="border-radius: 50%;">
+
+	<!-- Title Web -->
+    <title>TapOpung</title>
+	
+	<!-- Footer CSS -->
+	<style>
+		.footer {
+		  position: fixed;
+		  left: 0;
+		  bottom: 0;
+		  width: 100%;
+		  background-color: #000033;
+		  color: #00CC66;
+		  text-align: center;
+		}
+	</style>
+	
+	<!-- Disable Right Click -->
+	
+
+    </head>
+<body oncontextmenu="return false">
+  
+		<!-- BAGIAN KONTEN : -->
+		
+			<h1 class="text-center slmt">TapOpung</h1>
+			<h4 class="text-center mt-4">Tap Opung sebanyak mungkin untuk menamatkan game !!</h4>
+			
+			<div class="text-center mt-5">
+				<h4>Kamu menyentuh Opung sebanyak :</h4>
+				<h1 class="text-center d-inline" id="out">0</h1>
+				<h1 class="d-inline">x</h1>
+			</div>
+			
+			<img width="700" src="img/luhut.jpg" alt="" class="aaaa" id="touch">
+			
+			<br>
+			
+			<address class="footer">
+				&copy; Copyright 2021, All Rights Reserved. Development by <b><i>MaverickLab.</i></b>
+			</address>
+		
+		<!-- END -->
+
+<!-- Jquery -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<!-- Toastr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<script>
+    const touch = document["getElementById"]("touch");
+	const out = document["getElementById"]("out");
+	let count = 0;
+	
+	// EVENT AUDIO SFX
+	var bunyi = document.getElementById('bunyi');
+	
+	// EVENT RECORD SFX
+	var yeay = document.getElementById('yeay');
+	var wow = document.getElementById('wow');
+	var nani = document.getElementById('nani');
+	var joko = document.getElementById('joko');
+	
+	touch["addEventListener"]("click",()=>{
+	count++;
+	bunyi.play();
+	out["innerHTML"]= count;
+		if(count== 100){
+		yeay.play();
+		Command:toastr["success"]("Opung bangga sama kamu, nak !!");
+			toastr["options"]= {
+			"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
+		}
+	};
+		if(count== 500){
+		wow.play();
+		Command:toastr["success"]("Hebat sekali kamu, nak. Opung bangga sama kamu !!");
+			toastr["options"]= {
+			"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
+		}
+	};
+		if(count== 1000){
+		nani.play();
+		Command:toastr["success"]("NANI ?!! OPUNG KAGET SAMA KEHEBATANMU, NAK !!!");
+			toastr["options"]= {
+			"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
+		}
+	};
+		if(count== 10000){
+		joko.play();
+		Command:toastr["success"]("WOAH KAGEEETTTTTT !! SODARAKU OWI SAMPE KAGEEETTTTT !!! :D");
+			toastr["options"]= {
+			"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
+		}
+	};
+		if(count== 1000000){
+		joko.play();
+		Command:toastr["error"]("WOAH KAGEEETTTTTT BUKAN MAEEENNNNNN. TUNGGU TUKANG BAKSO DEPAN RUMAH YAA !!! :D");
+			toastr["options"]= {
+			"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
+		}
+	}
+}
+)
+</script>
+
+<script>
+    Command:toastr["info"]("SENTUH FOTO OPUNG LUHUT SEBANYAK2-NYA !! :D");
+	toastr["options"]= {
+	"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":true,"positionClass":"toast-top-center","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"
+	}
+</script>
+
+<!-- Kode untuk mencegah shorcut keyboard, view source, dll. -->
+<script type="text/javascript">
+	window.addEventListener("keydown",function(e){if(e.ctrlKey&&(e.which==65||e.which==66||e.which==67||e.which==73||e.which==80||e.which==83||e.which==85||e.which==86)){e.preventDefault()}});document.keypress=function(e){if(e.ctrlKey&&(e.which==65||e.which==66||e.which==67||e.which==73||e.which==80||e.which==83||e.which==85||e.which==86)){}return false}
+</script>
+
+<script type="text/javascript">
+	document.onkeydown=function(e){e=e||window.event;if(e.keyCode==123||e.keyCode==18){return false}}
+</script>
+
+</body>
+</html>
